@@ -1,25 +1,25 @@
-"use client"
+"use client";
 
-import type { BlogPost } from "@/lib/posts-store"
-import Link from "next/link"
-import { Edit2, Trash2 } from "lucide-react"
-import { formatDistanceToNow } from "date-fns"
+import type { BlogPost } from "@/lib/posts-store";
+import Link from "next/link";
+import { Edit2, Trash2 } from "lucide-react";
+import { formatDistanceToNow } from "date-fns";
 
 interface PostCardProps {
-  post: BlogPost
-  onDelete?: (id: number) => Promise<void>
-  isOwner?: boolean
+  post: BlogPost;
+  onDelete?: (id: number) => Promise<void>;
+  isOwner?: boolean;
 }
 
 export function PostCard({ post, onDelete, isOwner }: PostCardProps) {
   const handleDelete = async () => {
     if (confirm("Are you sure you want to delete this post?")) {
-      await onDelete?.(post.id)
+      await onDelete?.(post.id);
     }
-  }
+  };
 
   return (
-    <div className="bg-card border border-border rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
+    <div className="bg-green-600 text-white border border-border rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
       <div className="px-6 py-4 border-b border-border">
         <div className="flex items-start justify-between">
           <div className="flex-1">
@@ -55,7 +55,7 @@ export function PostCard({ post, onDelete, isOwner }: PostCardProps) {
               </Link>
               <button
                 onClick={handleDelete}
-                className="px-3 py-1.5 text-sm bg-destructive text-destructive-foreground rounded-md hover:bg-destructive/90 transition-colors"
+                className="px-3 py-1.5 text-sm cursor-pointer border border-input bg-destructive text-destructive-foreground rounded-md hover:bg-destructive/90 transition-colors"
               >
                 <Trash2 className="w-4 h-4" />
               </button>
@@ -64,5 +64,5 @@ export function PostCard({ post, onDelete, isOwner }: PostCardProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }

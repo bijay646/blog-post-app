@@ -19,12 +19,11 @@ interface FormErrors {
 }
 
 const CATEGORIES = [
-  "React",
-  "Next.js",
-  "JavaScript",
-  "TypeScript",
-  "Web Development",
-  "Other",
+  "Sustainable Farming",
+  "Crop Production",
+  "Pest Control",
+  "Agribusiness & Markets",
+  "Irrigation",
 ];
 
 export function PostForm({ mode }: PostFormProps) {
@@ -157,14 +156,14 @@ export function PostForm({ mode }: PostFormProps) {
             <form onSubmit={handleSubmit} className="space-y-4">
               {error && (
                 <div className="p-3 bg-destructive/10 border border-destructive/20 rounded-md flex gap-3 items-start">
-                  <AlertCircle className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" />
+                  <AlertCircle className="h-4 w-4 text-destructive shrink-0 mt-0.5" />
                   <p className="text-sm text-destructive">{error}</p>
                 </div>
               )}
 
               {successMessage && (
                 <div className="p-3 bg-green-50 border border-green-200 rounded-md flex gap-3 items-start dark:bg-green-950 dark:border-green-800">
-                  <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5 dark:text-green-400" />
+                  <CheckCircle className="h-4 w-4 text-green-600 shrink-0 mt-0.5 dark:text-green-400" />
                   <p className="text-sm text-green-600 dark:text-green-400">
                     {successMessage}
                   </p>
